@@ -9,6 +9,15 @@ const searchWeather = () =>{
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchCityText}&appid=${keyId}&units=metric`;
    fetch(url)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data =>  displayWeather(data))
 }
 
+// set inner text 
+const setInnerText = (id,text) =>{
+    document.getElementById(id).innerText = text;
+}
+// weather show 
+const displayWeather = temperature => {
+    console.log(temperature);
+    setInnerText('city-name',temperature.name);
+}
