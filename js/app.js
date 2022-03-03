@@ -18,6 +18,12 @@ const setInnerText = (id,text) =>{
 }
 // weather show 
 const displayWeather = temperature => {
-    console.log(temperature);
     setInnerText('city-name',temperature.name);
+    setInnerText('temperature',temperature.main.temp);
+    setInnerText('weather',temperature.weather[0].main);
+    // set attribute 
+    const url = `http://openweathermap.org/img/wn/${temperature.weather[0].icon}@2x.png`
+    const weatherIcon = document.getElementById('weather-image');
+    weatherIcon.setAttribute('src',url);
+
 }
